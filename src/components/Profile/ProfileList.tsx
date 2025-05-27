@@ -42,33 +42,38 @@ const ProfileList: React.FC = () => {
     if (error) return <div className="error-message">{error}</div>;
 
     return (
-        <div className="profiles-container">
-            <div className="profiles-grid">
-                {profiles.map((profile) => (
-                    <div key={profile.id} className="profile-card">
-                        <div className="profile-image">
-                            <img src={profile.photograph} alt={profile.name} />
-                        </div>
-                        <div className="profile-info">
-                            <h2>{profile.name}</h2>
-                            <p>{profile.description}</p>
-                            <div className="profile-actions">
-                                <button
-                                    className="details-button"
-                                    onClick={() => handleViewDetails(profile.id)}
-                                >
-                                    View Details
-                                </button>
-                                <button
-                                    className="location-button"
-                                    onClick={() => handleShowOnMap(profile)}
-                                >
-                                    Show on Map
-                                </button>
+        <div className="page-wrapper">
+            <header className="page-header">
+                <h1 className="page-title">Profile Mapping App</h1>
+            </header>
+            <div className="profiles-container">
+                <div className="profiles-grid">
+                    {profiles.map((profile) => (
+                        <div key={profile.id} className="profile-card">
+                            <div className="profile-image">
+                                <img src={profile.photograph} alt={profile.name} />
+                            </div>
+                            <div className="profile-info">
+                                <h2>{profile.name}</h2>
+                                <p>{profile.description}</p>
+                                <div className="profile-actions">
+                                    <button
+                                        className="details-button"
+                                        onClick={() => handleViewDetails(profile.id)}
+                                    >
+                                        View Details
+                                    </button>
+                                    <button
+                                        className="location-button"
+                                        onClick={() => handleShowOnMap(profile)}
+                                    >
+                                        Show on Map
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
     );
